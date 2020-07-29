@@ -34,9 +34,6 @@ python_repos = python_responseDict['total_count']
 swift_repos = swift_responseDict['total_count']
 java_repos = java_responseDict['total_count']
 
-# Print repos total count to verify successful api calls
-print(f"Total Python repos: {python_repos}\nTotal Swift repos: {swift_repos}\nTotal Java repos: {java_repos}")
-
 # Connect to local database c4v
 connection = pymysql.connect('localhost', 'root', '', 'c4v')
 
@@ -46,22 +43,11 @@ cursor = connection.cursor()
 # sql insert statement into assignment3 table
 sql = "INSERT INTO assignment3 (PythonRepos, SwiftRepos, JavaRepos) VALUES (%s, %s, %s)"
 
-# Execute sql statement passing the repos variables as arguements
+# Execute sql statement passing the repos variables as arguments
 cursor.execute(sql, (python_repos, swift_repos, java_repos))
 
 # Commit insert change to database
 connection.commit()
-
-# Verify insertion
-sql = "SELECT * FROM assignment3"
-
-# Execute SELECT
-cursor.execute(sql)
-
-# Fetch the results followed by printing them
-result = cursor.fetchall()
-for row in result:
-    print(row)
 
 # Close connection
 connection.close()
