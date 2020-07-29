@@ -8,3 +8,31 @@
     Description: Creating and editing databases with SQL
 '''
 
+# Importing requests
+import requests
+
+# Importing pymysql
+import pymysql
+
+# Declare API call variables
+python_apicall = "https://api.github.com/search/repositories?q=language:python"
+swift_apicall = "https://api.github.com/search/repositories?q=language:swift"
+java_apicall = "https://api.github.com/search/repositories?q=language:java"
+
+# Getting the response of each apicall
+python_response = requests.get(python_apicall)
+swift_response = requests.get(swift_apicall)
+java_response = requests.get(java_apicall)
+
+# Sets a variable to the  return of the JSON object of it's result
+python_responseDict = python_response.json()
+swift_responseDict = swift_response.json()
+java_responseDict = java_response.json()
+
+# Sets a variable to the total count of the repos
+python_repos = python_responseDict['total_count']
+swift_repos = swift_responseDict['total_count']
+java_repos = java_responseDict['total_count']
+
+# Print repos total count to verify successful api calls
+print(f"Total Python repos: {python_repos}\nTotal Swift repos: {swift_repos}\nTotal Java repos: {java_repos}")
