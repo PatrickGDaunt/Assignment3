@@ -1,0 +1,18 @@
+# Assignment 3 for the c4v - Intermediate Python course
+
+## Table of contents
+* [General Info] (#general-info)
+* [Technologies] (#technologies)
+* [Setup] (#setup)
+
+## General info
+* Pull the total count for three different repos (Python, Swift, and Java) and add them to a table within an existing database
+
+ ## Technologies
+ Project is creted with:
+ * Python 3.7
+ * Requests package
+ * mySQL package
+
+ ## Setup
+ Requires Python IDE
